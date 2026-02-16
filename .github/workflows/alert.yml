@@ -1,0 +1,15 @@
+name: Alert Bot
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run Python
+        run: |
+          pip install requests
+          python alert.py
